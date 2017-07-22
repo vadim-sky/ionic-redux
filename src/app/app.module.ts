@@ -43,13 +43,19 @@ export function createTranslateLoader(http: Http) {
 
 
     /* REDUX */
-    StoreModule.provideStore(appReducers),
+    StoreModule.forRoot(appReducers),
     // Note that you must instrument after importing StoreModule
-    StoreDevtoolsModule.instrumentOnlyWithExtension({
-      maxAge: 5
-    }),
+    // StoreDevtoolsModule.instrumentOnlyWithExtension({
+    //   maxAge: 5
+    // }),
 
-    EffectsModule.runAfterBootstrap(SystemEffects)
+    // !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : []
+    StoreDevtoolsModule.instrument({ maxAge: 25 }),
+
+
+    EffectsModule.forRoot([
+      SystemEffects
+    ])
   ],
   bootstrap: [IonicApp],
   entryComponents: [

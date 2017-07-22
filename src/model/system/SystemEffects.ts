@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { Observable } from 'rxjs';
-import { SystemActionTypes, SystemSetPage, SystemUpdate } from './system.actions';
-import { SystemInfo, SystemStatus } from './system.model';
+import { INITIATE, SET_PAGE, SystemInitiate, SystemSetPage, SystemUpdate } from './system.actions';
+import { SystemStatus } from './system.model';
 
 
 
@@ -11,9 +11,18 @@ export class SystemEffects {
 
   constructor( private actions$: Actions) {}
 
+  //
+  // @Effect()
+  // init$: Observable<Action> = defer(() => {
+  //
+  //   return of(new SystemInitiate());
+  //
+  // });
+
+
   @Effect() initiate$ = this.actions$
-    .ofType(SystemActionTypes.INITIATE)
-    .map( action  => action.payload )
+    .ofType(INITIATE)
+    // .map( (action: SystemInitiate)  => action.payload )
     .switchMap ( payload => Observable.timer (1000)
         .switchMap(() => {
           console.log('After Init');
@@ -21,9 +30,9 @@ export class SystemEffects {
         })
     );
 
-  @Effect() updatePage = this.actions$
-    .ofType(SystemActionTypes.SET_PAGE)
-    .map( action  => action.payload )
+
+  @Effect() updatePage = this.actions$.ofType(SET_PAGE)
+    .map( (action: SystemSetPage) => action.payload)
     .switchMap ( payload => Observable.timer (1000)
       .switchMap(() => {
         console.log('Current Page: ', payload);

@@ -1,21 +1,23 @@
-import { Action, ActionReducer } from '@ngrx/store';
+import { Action, ActionReducer, createSelector } from '@ngrx/store';
 import { SystemInfo, SystemInitialState, SystemStatus } from './system.model';
-import { SystemActionTypes } from './system.actions';
+import { INITIATE, SET_PAGE, SystemActions, UPDATE } from './system.actions';
+import * as system from './system.actions';
+import { State } from '../reducers';
 
 
-
-export const SystemInfoReducer: ActionReducer<SystemInfo> = (state: SystemInfo, action: Action) => {
+export const SystemInfoReducer: ActionReducer<SystemInfo> =
+  (state: SystemInfo, action: system.SystemInitiate | system.SystemSetPage | system.SystemUpdate) => {
 
   switch (action.type) {
-    case SystemActionTypes.INITIATE: {
+    case INITIATE: {
       return Object.assign({}, state, {status: SystemStatus.Initialization});
     }
 
-    case SystemActionTypes.SET_PAGE: {
+    case SET_PAGE: {
       return Object.assign({}, state, {page: action.payload});
     }
 
-    case SystemActionTypes.UPDATE: {
+    case UPDATE: {
       return Object.assign({},  action.payload);
     }
 
@@ -24,3 +26,7 @@ export const SystemInfoReducer: ActionReducer<SystemInfo> = (state: SystemInfo, 
   }
 
 };
+
+export const getSystemInfo = (state: State) => state.systemInfo;
+
+export const getSystemInfoSelector = createSelector(getSystemInfo, (info) =>  info);
