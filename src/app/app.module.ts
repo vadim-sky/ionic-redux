@@ -33,6 +33,7 @@ export function createTranslateLoader(http: Http) {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
+
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -44,10 +45,6 @@ export function createTranslateLoader(http: Http) {
 
     /* REDUX */
     StoreModule.forRoot(appReducers),
-    // Note that you must instrument after importing StoreModule
-    // StoreDevtoolsModule.instrumentOnlyWithExtension({
-    //   maxAge: 5
-    // }),
 
     // !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : []
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
