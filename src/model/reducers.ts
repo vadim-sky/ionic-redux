@@ -18,5 +18,4 @@ export interface State {
 
 export const appReducers: ActionReducerMap<State> = {
   systemInfo: SystemInfoReducer
-
 };

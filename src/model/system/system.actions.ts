@@ -10,11 +10,9 @@ export const SET_PAGE = '[System] change page';
 export interface  SystemAction extends Action {
   payload?: any;
 }
-
-
-
 export class SystemInitiate implements Action {
   readonly type =  INITIATE;
+  payload?: any;
 }
 
 export class SystemUpdate implements Action {

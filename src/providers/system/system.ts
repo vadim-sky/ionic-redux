@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { SystemInfo } from '../../model/system/system.model';
 import { Store } from '@ngrx/store';
-import { SystemActions, SystemInitiate, SystemSetPage, SystemUpdate } from '../../model/system/system.actions';
+import { SystemInitiate, SystemSetPage, SystemUpdate } from '../../model/system/system.actions';
 
 /*
   Generated class for the SystemProvider provider.

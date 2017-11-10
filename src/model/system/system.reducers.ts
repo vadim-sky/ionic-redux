@@ -1,6 +1,6 @@
-import { Action, ActionReducer, createSelector } from '@ngrx/store';
+import { ActionReducer, createSelector } from '@ngrx/store';
 import { SystemInfo, SystemInitialState, SystemStatus } from './system.model';
-import { INITIATE, SET_PAGE, SystemActions, UPDATE } from './system.actions';
+import { INITIATE, SET_PAGE, UPDATE } from './system.actions';
 import * as system from './system.actions';
 import { State } from '../reducers';
 
