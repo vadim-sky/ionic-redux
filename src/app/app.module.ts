@@ -9,16 +9,16 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { WelcomePage } from '../pages/welcome/welcome';
-import { Http, HttpModule } from '@angular/http';
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from '../model/reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { SystemProvider } from '../providers/system/system';
 import { EffectsModule } from '@ngrx/effects';
 import { SystemEffects } from '../model/system/SystemEffects';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
-export function createTranslateLoader(http: Http) {
+export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
@@ -32,13 +32,13 @@ export function createTranslateLoader(http: Http) {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule,
+    HttpClientModule,
 
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: (createTranslateLoader),
-        deps: [Http]
+        deps: [HttpClient]
       }
     }),
 

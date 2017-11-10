@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { SystemInfo } from '../../model/system/system.model';
 import { Store } from '@ngrx/store';
 import { SystemInitiate, SystemSetPage, SystemUpdate } from '../../model/system/system.actions';
+import {HttpClient} from "@angular/common/http";
 
 /*
   Generated class for the SystemProvider provider.
@@ -14,7 +14,7 @@ import { SystemInitiate, SystemSetPage, SystemUpdate } from '../../model/system/
 @Injectable()
 export class SystemProvider {
 
-  constructor(public http: Http, private store: Store<SystemInfo>) {
+  constructor(public http: HttpClient, private store: Store<SystemInfo>) {
     this.store.dispatch(new SystemInitiate());
     console.log('Hello SystemProvider Provider');
   }
