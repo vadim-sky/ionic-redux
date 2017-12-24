@@ -16,6 +16,7 @@ export class MyApp {
   rootPage:any = WelcomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, private splashScreen: SplashScreen, private system: SystemProvider) {
+
     this.splashScreen.show();
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

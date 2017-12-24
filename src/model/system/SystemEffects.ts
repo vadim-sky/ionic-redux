@@ -37,7 +37,7 @@ export class SystemEffects {
         console.log('Current Page: ', payload);
         return Observable.of(new SystemUpdate({
           token: '11111',
-          status: SystemStatus.Initial,
+          status: SystemStatus.CONNECTED,
           updated: Date.now(),
           page: payload
         }));
