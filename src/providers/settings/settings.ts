@@ -24,6 +24,7 @@ export class SettingsProvider {
     this.setLanguage('he', 'rtl');
   }
 
+
   setDefault() {
     // Language and direction
     this.setHebrew();

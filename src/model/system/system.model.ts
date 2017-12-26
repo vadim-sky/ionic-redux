@@ -14,13 +14,13 @@ export interface SystemInfo {
   status: SystemStatus;
   updated: number;
   page: string;
+  language?: string;
 }
 
 
 export const SystemActionTypes = {
   INIT: "SYSTEM.IN",
   INITIATED: "SYSTEM.CONNECTING_ENGINE",
-
 };
 
 
@@ -28,5 +28,6 @@ export const SystemInitialState: SystemInfo  = {
   token: '',
   status: SystemStatus.Initial,
   updated: Date.now(),
-  page: "Welcome"
+  page: 'Welcome',
+  language: 'en'
 };

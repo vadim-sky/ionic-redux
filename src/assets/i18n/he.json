@@ -1,0 +1,24 @@
+{
+  "HOME": {
+    "TITLE": "בית",
+    "SELECT": ""
+  },
+  "PRODUCTS": {
+    "TITLE": "מוצרים"
+  },
+  "SETTINGS": {
+    "TITLE": "חגדרות"
+  },
+  "TABS": {
+    "HOME": "בית",
+    "PRODUCTS": "מוצרים",
+    "SETTINGS": "הגדרות"
+  },
+  "profile":{
+    "title" : "המידע האישי שלי",
+    "logout":"התנתק"
+  },
+  "Settings": {
+    "language": "עברית"
+  }
+}

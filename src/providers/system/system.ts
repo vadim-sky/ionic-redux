@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { SystemInfo } from '../../model/system/system.model';
 import { Store } from '@ngrx/store';
-import { SystemInitiate, SystemSetPage, SystemUpdate } from '../../model/system/system.actions';
+import {SystemInitiate, SystemSetLanguage, SystemSetPage, SystemUpdate} from '../../model/system/system.actions';
 import {HttpClient} from "@angular/common/http";
 
 /*
@@ -27,6 +27,11 @@ export class SystemProvider {
   setPage (page: string): void {
     console.log('set page: ', page);
     this.store.dispatch(new SystemSetPage(page));
+  }
+
+  setLanguage (lang: string, dir: string): void {
+    console.log('set language: ', lang, dir);
+    this.store.dispatch(new SystemSetLanguage(lang));
   }
 
 }

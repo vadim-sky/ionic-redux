@@ -1,12 +1,12 @@
 import { ActionReducer, createSelector } from '@ngrx/store';
 import { SystemInfo, SystemInitialState, SystemStatus } from './system.model';
-import { INITIATE, SET_PAGE, UPDATE } from './system.actions';
+import {INITIATE, SET_LANGUAGE, SET_PAGE, UPDATE} from './system.actions';
 import * as system from './system.actions';
 import { State } from '../reducers';
 
 
 export const SystemInfoReducer: ActionReducer<SystemInfo> =
-  (state: SystemInfo, action: system.SystemInitiate | system.SystemSetPage | system.SystemUpdate) => {
+  (state: SystemInfo, action: system.SystemInitiate | system.SystemSetPage | system.SystemUpdate | system.SystemSetLanguage) => {
 
   switch (action.type) {
     case INITIATE: {
@@ -19,6 +19,10 @@ export const SystemInfoReducer: ActionReducer<SystemInfo> =
 
     case UPDATE: {
       return Object.assign({},  action.payload);
+    }
+
+    case SET_LANGUAGE: {
+      return Object.assign({}, state, {language: action.payload || 'en'});
     }
 
     default:

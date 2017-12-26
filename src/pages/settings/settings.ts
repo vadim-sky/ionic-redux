@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {SettingsProvider} from "../../providers/settings/settings";
 import {DocumentDirection} from "ionic-angular/platform/platform";
+import {SystemProvider} from "../../providers/system/system";
 
 /**
  * Generated class for the SettingsPage page.
@@ -18,7 +19,7 @@ import {DocumentDirection} from "ionic-angular/platform/platform";
 export class SettingsPage {
   language: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private settings: SettingsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private settings: SettingsProvider, private system: SystemProvider) {
   }
 
   ionViewDidLoad() {
@@ -31,8 +32,7 @@ export class SettingsPage {
     if (this.language ==='he') {
       dir = 'rtl';
     }
-
-    this.settings.setLanguage(this.language, dir);
+    this.system.setLanguage(this.language, dir);
   }
 
 }

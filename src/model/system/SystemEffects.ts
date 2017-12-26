@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { Observable } from 'rxjs';
-import {INITIATE, SET_PAGE, SystemInitiate, SystemSetPage, SystemUpdate} from './system.actions';
+import {
+  INITIATE, SET_LANGUAGE, SET_PAGE, SystemInitiate, SystemSetLanguage, SystemSetPage,
+  SystemUpdate
+} from './system.actions';
 import { SystemStatus } from './system.model';
 
 
@@ -11,19 +14,11 @@ export class SystemEffects {
 
   constructor( private actions$: Actions) {}
 
-  //
-  // @Effect()
-  // init$: Observable<Action> = defer(() => {
-  //
-  //   return of(new SystemInitiate());
-  //
-  // });
-
 
   @Effect() initiate$ = this.actions$
     .ofType(INITIATE)
     .map( (action: SystemInitiate)  => action.payload )
-    .switchMap ( () => Observable.timer (5000)
+    .switchMap ( () => Observable.timer (1000)
         .switchMap(() => {
           console.log('After Init');
           return Observable.of(new SystemSetPage('Welcome Page'));

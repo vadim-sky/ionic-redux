@@ -1,13 +1,21 @@
 {
-  "general": {
 
+  "HOME": {
+    "TITLE": "Welcome!"
   },
-
-  "messages": {
-
+  "PRODUCTS": {
+    "TITLE": "Products!"
   },
-
-  "welcome": {
-
+  "SETTINGS": {
+    "TITLE": "Settings"
+  },
+  "CONTACT": {
+    "TITLE": "Contact",
+    "TWITTER_MESSAGE": "Follow us on Twitter"
+  },
+  "TABS": {
+    "HOME": "Home",
+    "PRODUCTS": "Products",
+    "SETTINGS": "Settings"
   }
 }
