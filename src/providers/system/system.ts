@@ -25,6 +25,7 @@ export class SystemProvider {
   }
 
   setPage (page: string): void {
+    console.log('set page: ', page);
     this.store.dispatch(new SystemSetPage(page));
   }
 

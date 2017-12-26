@@ -27,9 +27,7 @@ export class WelcomePage {
 
   ionViewDidLoad() {
     this.system.setPage("Welcome");
-    console.log('ionViewDidLoad WelcomePage');
     this.systemInfo = this.store.select(getSystemInfoSelector);
-
     this.subscription = this.systemInfo
       .subscribe((info: SystemInfo) => {
         console.log(JSON.stringify(info));

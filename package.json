@@ -1,5 +1,5 @@
 {
-  "name": "catamaran",
+  "name": "IonicReduxDemo",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
@@ -68,7 +68,7 @@
     "protractor": "^5.2.0",
     "ts-loader": "^3.1.1",
     "ts-node": "^3.3.0",
-    "typescript": "^2.6.1"
+    "typescript": "2.4.2"
   },
   "description": "An Ionic project",
   "cordova": {
